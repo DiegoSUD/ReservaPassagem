@@ -1,0 +1,93 @@
+package comprarProdutoComApenasUmClick;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import service.DriverFactory;
+import utils.Utils;
+
+public class ReservarUmTicketPageObject extends DriverFactory{
+	
+	WebDriverWait wait;
+	private By inputUserName = By.name("userName");
+	private By inputPassaword = By.name("password");
+	private By botaoSingIN = By.xpath("//*[@name= 'login']");
+	private By ComboBoxCidadeOrigem = By.name("fromPort");
+	private By botaoContinue = By.name("findFlights");
+	private By ComboBoxCidadeDestino =  By.name("toPort");
+	private By comboBoxOnMes = By.name("fromMonth");
+	private By comboBoxOnDia = By.name("fromDay");
+	private By comboBoxReturningToDia = By.name("toDay");
+	private By comboBoxRuturningToMonth = By.name("toMonth");
+	private By RadioButton = By.name("servClass");
+	private By passengers = By.name("passCount");
+	private By botaoContinuar = By.name("findFlights");
+	private By subTituloDepart = By.xpath("(//*[contains(text(), 'DEPART')])[1]");
+
+	public ReservarUmTicketPageObject() {
+		this.wait = new WebDriverWait(DriverFactory.getDriver(), 30);
+	}
+
+	public void userNameLogin(String username) {
+		Utils.escrever(this.inputUserName, username);
+		
+	}
+
+	public void passwordLogin(String password) {
+		Utils.escrever(this.inputPassaword, password);
+		
+	}
+
+	public void clicarBotaoSingIn() {
+		Utils.clicar(this.botaoSingIN);
+		
+	}
+
+	public void selecionarCidadeDeOrigem() {
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(this.botaoContinue));
+		System.out.println("Encontrou o botao continue");
+		Utils.selecionarComboBoxIndex(this.ComboBoxCidadeOrigem, 2);
+		System.out.println("selecionou a cidade de origem");
+		Utils.sleep(300);
+	}
+
+	public void selecionarCidadeDeDestino() {
+		Utils.selecionarComboBoxIndex(this.ComboBoxCidadeDestino, 4);
+		System.out.println("selecionou a cidade de destino");
+		Utils.sleep(300);
+		
+	}
+
+	public void selecioneData() {
+		
+		Utils.diaEmbarque(this.comboBoxOnDia, this.comboBoxOnMes);
+		Utils.diaRetorno(this.comboBoxReturningToDia, this.comboBoxRuturningToMonth);
+		Utils.sleep(300);
+	}
+
+	public void escolherClasse() {
+		Utils.clicar(this.RadioButton);
+		Utils.sleep(300);
+		
+	}
+
+	public void escolherQuantidadePassageiros(String quantidade) {
+		Utils.selecionarComboBoxByValue(this.passengers, quantidade);
+		Utils.sleep(300);
+	}
+
+	public void clicarBotaoContinuar() {
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(this.subTituloDepart));
+		Utils.clicar(this.botaoContinuar);
+		Utils.sleep(300);
+	}
+
+	
+	
+
+	
+	
+	
+
+}

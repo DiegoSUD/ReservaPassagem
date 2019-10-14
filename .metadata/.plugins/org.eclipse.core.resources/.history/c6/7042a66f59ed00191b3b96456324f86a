@@ -1,0 +1,21 @@
+package br.com.diego.CompraPassagens;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Calendar c = Calendar.getInstance();
+    	 System.out.println("Mês: "+c.get(Calendar.MONTH));
+    	
+    }
+    
+}

@@ -1,0 +1,39 @@
+package comprarProdutoComApenasUmClick;
+
+import org.openqa.selenium.By;
+
+import service.DriverFactory;
+import utils.Utils;
+
+public class ReservarUmTicketPageObject extends DriverFactory{
+	
+	private By inputUserName = By.name("userName");
+	private By inputPassaword = By.name("password");
+	private By botaoSingIN = By.xpath("//*[@name= 'login']");
+
+	public ReservarUmTicketPageObject() {
+		
+	}
+
+	public void userNameLogin(String username) {
+		Utils.escrever(this.inputUserName, username);
+		
+	}
+
+	public void passwordLogin(String password) {
+		Utils.escrever(this.inputPassaword, password);
+		
+	}
+
+	public void clicarBotaoSingIn() {
+		Utils.clicar(this.botaoSingIN);
+		
+	}
+	
+	
+
+	
+	
+	
+
+}

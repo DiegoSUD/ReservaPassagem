@@ -1,0 +1,51 @@
+package br.com.diego.CompraPassagens;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.MonthDay;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+
+    	LocalDate localDate = LocalDate.now();
+    	LocalDate localDateMaior = LocalDate.now().plusDays(19);
+    	
+    	if(localDate.getDayOfMonth() < localDateMaior.getDayOfMonth()) {
+    		localDate = localDateMaior;
+    		System.out.println("Dia dMaa semana: " + localDate.getDayOfMonth());
+    		
+    	} else if(localDate.getDayOfMonth() > localDateMaior.getDayOfMonth()) {
+    		localDate = localDateMaior;
+    		System.out.println("Dia dMaa semana: " + localDate.getDayOfMonth());
+    		System.out.println("Dia dMaa semana: " + localDate.plusMonths(1));
+    		
+    	}	
+    	
+    	
+//    	System.out.println("Dia dMaa semana: " + localDate.getDayOfMonth());
+//    	
+//    	System.out.println("Dia da semana: " + localDate.plusDays(5));
+//    	
+//    	System.out.println("Dia da semana: " + localDate.getMonthValue());
+//    	
+//    	
+//    	
+//    	System.out.println("Dia da semana: " + localDate.getDayOfWeek().name());
+//    	System.out.println("Dia da semana: " + localDate.getDayOfWeek().ordinal());
+    	
+    	
+    	
+    	
+    }
+    
+}
