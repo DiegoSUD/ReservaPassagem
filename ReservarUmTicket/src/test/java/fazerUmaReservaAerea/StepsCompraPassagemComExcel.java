@@ -48,7 +48,7 @@ public class StepsCompraPassagemComExcel {
 	@And("^seleciono o voos ida e volta$")
 	public void seleciono_o_voos_ida_e_volta() throws Throwable {
 	    reserva.selecionarVooIdaVolta();
-	    Utils.screenshotsComMassa();
+	    
 	    
 	}
 	
@@ -57,7 +57,7 @@ public class StepsCompraPassagemComExcel {
 		reserva.clicarBotaoSecure();
 		reserva.validarReserva();
 		reserva.preencheOrderNumber();
-		Utils.screenshotsComMassa();
+		
 	}
 	
 	

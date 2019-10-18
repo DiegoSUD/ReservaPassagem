@@ -1,11 +1,14 @@
 package fazerUmaReservaAerea;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import model.ReservaPassagem;
 import service.DriverFactory;
 import utils.ExcelUtils;
@@ -16,9 +19,9 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 	ExcelUtils excelUtils;
 	WebDriverWait wait;
 	ReservaPassagem rp;
-	
+
 	public static int j = 1;
-	
+
 	private By inputUserName = By.name("userName");
 	private By inputPassaword = By.name("password");
 	private By botaoSingIN = By.xpath("//*[@name= 'login']");
@@ -49,28 +52,35 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 	private By botaoSecurePurcharse = By.name("buyFlights");
 	private By mensagem = By.xpath("((//tr[@valign ='top' ])[2]//..//img)[1]");
 	private By radioOneWay = By.xpath("//*[@name = 'tripType'][2]");
-	private By RadioButtonBusiness =  By.xpath("(//input[@name = 'servClass'])[2]");
+	private By RadioButtonBusiness = By.xpath("(//input[@name = 'servClass'])[2]");
 	private By RadioButtonFirst = By.xpath("(//input[@name = 'servClass'])[3]");
 	private By selecionarVoo360 = By.xpath("(//input[@name = 'outFlight'])[1]");
 	private By selecionarVoo361 = By.xpath("(//input[@name = 'outFlight'])[2]");
 	private By selecionarVoo363 = By.xpath("(//input[@name = 'outFlight'])[4]");
-	
+
+	private static String nome;
+
+	@Before
+	public void antes(Scenario c) {
+		nome = c.getName() + File.separator + "reservarVoo";
+	}
+
 	public ReservarUmTicketPageObject() {
 		this.wait = new WebDriverWait(DriverFactory.getDriver(), 30);
 		excelUtils = new ExcelUtils(1);
 		rp = excelUtils.entrarExcel();
-		
+
 	}
 
 	public void userNameLogin(String username) {
+		Utils.setCaminhoArq(nome);
 		Utils.escrever(this.inputUserName, username);
-
 	}
 
 	public void passwordLogin(String password) {
 		Utils.escrever(this.inputPassaword, password);
 		Utils.screenshots();
-		Utils.screenshotsComMassa();
+		
 
 	}
 
@@ -108,7 +118,7 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 		Utils.selecionarComboBoxByValue(this.passengers, quantidade);
 		Utils.sleep(300);
 		Utils.screenshots();
-		
+
 	}
 
 	public void clicarBotaoContinuar() {
@@ -116,12 +126,12 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 			Utils.scroll(botaoContinuar);
 			Utils.clicar(this.botaoContinuar);
 			Utils.sleep(300);
-			
+
 		} catch (Exception e) {
 			Utils.scroll(botaoContinuarTelaSelecionarVoo);
 			Utils.clicar(this.botaoContinuarTelaSelecionarVoo);
 			Utils.sleep(300);
-			
+
 		}
 		Utils.sleep(300);
 	}
@@ -166,7 +176,7 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 		Utils.screenshots();
 		Utils.sleep(300);
 		Utils.screenshots();
-		Utils.screenshotsComMassa();
+	
 	}
 
 	public void clicarBotaoSecure() {
@@ -190,24 +200,24 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 	}
 
 	public void selecionarDepartingFrom() {
-		
+
 		Utils.selecionarComboBoxByVisibleText(this.ComboBoxCidadeOrigem, rp.getDepartingFrom());
 		Utils.sleep(300);
 	}
 
 	public void selecionarArrivingIn() {
-		Utils.selecionarComboBoxByVisibleText(this.ComboBoxCidadeDestino,rp.getArrivingIn());
+		Utils.selecionarComboBoxByVisibleText(this.ComboBoxCidadeDestino, rp.getArrivingIn());
 		Utils.sleep(300);
 	}
 
 	public void selecionarDataPartidaERetorno() {
-		String[] dataPartida =rp.getOn().split("/");
+		String[] dataPartida = rp.getOn().split("/");
 		String dia = dataPartida[0];
 		String mes = dataPartida[1];
-		
+
 		int diaRetorno = Integer.parseInt(dia) + 1;
 		String diaRet = Integer.toString(diaRetorno);
-			
+
 		Utils.selecionarComboBoxByVisibleText(this.comboBoxOnDia, dia);
 		Utils.sleep(300);
 		Utils.selecionarComboBoxByValue(this.comboBoxOnMes, mes);
@@ -218,7 +228,7 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 	}
 
 	public void selecionarFligthClass() {
-		
+
 		switch (rp.getFligthclass()) {
 		case "Economy class":
 			Utils.clicar(this.RadioButton);
@@ -234,25 +244,25 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 			break;
 		}
 		Utils.sleep(300);
-		
+
 	}
 
 	public void quantidadePassagem() {
-		Utils.selecionarComboBoxByVisibleText(this.passengers,rp.getPassengers());
+		Utils.selecionarComboBoxByVisibleText(this.passengers, rp.getPassengers());
 		Utils.sleep(300);
 		Utils.screenshots();
 	}
 
 	public void selecionarVooIdaVolta() {
-		String vooIda =rp.getFlightNumber();
-		switch (vooIda){
+		String vooIda = rp.getFlightNumber();
+		switch (vooIda) {
 		case "Pangaea Airlines 362":
 			Utils.clicar(this.selecionarVooIda);
 			break;
 		case "Blue Skies Airlines 361":
 			Utils.clicar(this.selecionarVoo361);
 			break;
-		case "First class": 
+		case "First class":
 			Utils.clicar(this.RadioButtonFirst);
 			break;
 		case "Blue Skies Airlines 360":
@@ -267,15 +277,13 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 		}
 		Utils.sleep(300);
 		Utils.clicar(this.selecionarVooRetorno);
-		
+
 	}
 
 	public void preencheOrderNumber() throws IOException {
-		
+
 		excelUtils.writeExcel();
-		
-		
-		
+
 //		
 //		String i = Integer.toString(j++);
 //		
@@ -293,5 +301,5 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 //			System.out.println("nao faz nada");
 //		}
 //		
-	}	
+	}
 }
