@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Runner" project="ReservarUmTicket" tests="33" started="33" failures="0" errors="0" ignored="0">
+  <testsuite name="fazerUmaReservaAerea.Runner" time="74.82">
+    <testsuite name="Feature: Eu como usuario final" time="31.434">
+      <testsuite name="Scenario Outline: Fazendo reserva pelo site" time="31.434">
+        <testsuite name="Examples:" time="31.434">
+          <testsuite name="| mercury | mercury | Diego | Pereira | Barroso |" time="31.434">
+            <testcase name="Given que acesso o site" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.081"/>
+            <testcase name="And digito o nome de usuario &quot;mercury&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.394"/>
+            <testcase name="And digito o a senha de usuario &quot;mercury&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="13.578"/>
+            <testcase name="And clico no botao SingIn" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.582"/>
+            <testcase name="And seleciono a cidade de origem" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.604"/>
+            <testcase name="And seleciono a cidade de destino" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.997"/>
+            <testcase name="And seleciono a data" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.427"/>
+            <testcase name="And seleciono a classe" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.798"/>
+            <testcase name="And seleciono a quantidade de passageiros" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.226"/>
+            <testcase name="And clico no botao continuar" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="1.561"/>
+            <testcase name="And seleciono o voo" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.63"/>
+            <testcase name="And clico no botao continuar" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.663"/>
+            <testcase name="And infomo o nome &quot;Diego&quot; e sobrenome &quot;Barroso&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.21"/>
+            <testcase name="And preencho o numero do cartao" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.021"/>
+            <testcase name="And preencho o nome do passageiro &quot;Diego&quot; , nome do meio &quot;Pereira&quot; e ultimo nome &quot;Barroso&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.015"/>
+            <testcase name="Then realizo a compra segura" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.646"/>
+          </testsuite>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature: Eu como usuario final" time="37.419">
+      <testsuite name="Scenario Outline: Fazendo reserva pelo site usando massa do Excel" time="37.419">
+        <testsuite name="Examples:" time="37.419">
+          <testsuite name="| mercury | mercury | Diego | Pereira | Barroso |" time="37.419">
+            <testcase name="Given que acesso o site" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.078"/>
+            <testcase name="And digito o nome de usuario &quot;mercury&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.383"/>
+            <testcase name="And digito o a senha de usuario &quot;mercury&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="20.117"/>
+            <testcase name="And clico no botao SingIn" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.315"/>
+            <testcase name="And seleciono One Way" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.454"/>
+            <testcase name="And seleciono a departing from" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.468"/>
+            <testcase name="And seleciono arriving in" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="1.604"/>
+            <testcase name="And seleciono a data on e returning" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.303"/>
+            <testcase name="And seleciono a class" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.423"/>
+            <testcase name="And seleciono a quantidade de passengers" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.279"/>
+            <testcase name="And clico no botao continuar" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.583"/>
+            <testcase name="And seleciono o voos ida e volta" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.437"/>
+            <testcase name="And clico no botao continuar" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.653"/>
+            <testcase name="And infomo o nome &quot;Diego&quot; e sobrenome &quot;Barroso&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.382"/>
+            <testcase name="And preencho o numero do cartao" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.184"/>
+            <testcase name="And preencho o nome do passageiro &quot;Diego&quot; , nome do meio &quot;Pereira&quot; e ultimo nome &quot;Barroso&quot;" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="2.119"/>
+            <testcase name="Then realizo a compra segura do tickt de reserva" classname="| mercury | mercury | Diego | Pereira | Barroso |" time="0.636"/>
+          </testsuite>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>

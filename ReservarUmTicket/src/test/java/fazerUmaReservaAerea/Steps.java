@@ -30,6 +30,7 @@ public class Steps {
 	public void digito_o_a_senha_de_usuario(String password) throws Throwable {
 		reservaPageObject.passwordLogin(password);
 		
+		
 	}
 
 	@And("^clico no botao SingIn$")
@@ -65,17 +66,21 @@ public class Steps {
 	public void seleciono_a_quantidade_de_passageiros() throws Throwable {
 		reservaPageObject.escolherQuantidadePassageiros("1");
 		
+		
 	}
 
 	@And("^clico no botao continuar$")
 	public void clico_no_botao_continuar() throws Throwable {
 		reservaPageObject.clicarBotaoContinuar();
+	
 
 	}
 
 	@And("^seleciono o voo$")
 	public void seleciono_o_voo() throws Throwable {
 		reservaPageObject.selecionarVoo();
+		
+		
 
 	}
 
@@ -92,12 +97,15 @@ public class Steps {
 	@And("^preencho o nome do passageiro \"([^\"]*)\" , nome do meio \"([^\"]*)\" e ultimo nome \"([^\"]*)\"$")
 	public void preencho_o_nome_do_passageiro_nome_do_meio_e_ultimo_nome(String nome, String nomeMeio, String ultimoNome) throws Throwable {
 	    reservaPageObject.preencherDados(nome,nomeMeio,ultimoNome);
+
 	}
 
 	@Then("^realizo a compra segura$")
 	public void realizo_a_compra_segura() throws Throwable {
 		reservaPageObject.clicarBotaoSecure();
 		reservaPageObject.validarReserva();
+	
+		
 
 	}
 

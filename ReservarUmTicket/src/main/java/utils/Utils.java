@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import service.DriverFactory;
 
-public class Utils {
+public class Utils{
 	
 	private static int contador = 1;
 
@@ -79,13 +79,25 @@ public class Utils {
 
 	/**
 	 * @param elemento Metodo de selecionar um combobox passando como par�metro um
-	 *                 By e um texto
+	 *                 By e um valor
 	 * @param texto
 	 */
 	public static void selecionarComboBoxByValue(By elemento, String texto) {
 		WebElement nome = retornarElemento(elemento);
 		Select combo = new Select(nome);
 		combo.selectByValue(texto);
+
+	}
+	
+	/**
+	 * @param elemento Metodo de selecionar um combobox passando como par�metro um
+	 *                 By e um texto
+	 * @param texto
+	 */
+	public static void selecionarComboBoxByVisibleText(By elemento, String texto) {
+		WebElement nome = retornarElemento(elemento);
+		Select combo = new Select(nome);
+		combo.selectByVisibleText(texto);
 
 	}
 
@@ -111,8 +123,7 @@ public class Utils {
 		File arquivo = screen.getScreenshotAs(OutputType.FILE);
 		try {
 			
-			
-			FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshots" + File.separator + "reservarVoo" + contador++ +".png"));
+			FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshots" + File.separator + "ComprarPassagem.feature" + File.separator + "reservarVoo" + contador++ +".png"));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -120,6 +131,26 @@ public class Utils {
 		}
 
 	}
+	
+	/**
+	 * @param status Metrodo de tirar screenshots e salvar na devida basta, passando
+	 *               dois parametros String
+	 * @param nome
+	 */
+	public static void screenshotsComMassa() {
+		TakesScreenshot screen = (TakesScreenshot) DriverFactory.getDriver();
+		File arquivo = screen.getScreenshotAs(OutputType.FILE);
+		try {
+			
+			FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshots" + File.separator + "ComprarPassagemComExcel.feature" + File.separator + "reservarVoo" + contador++ +".png"));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 
 	public static void diaEmbarque(By elementoDia, By elementoMes) {
 
@@ -190,9 +221,11 @@ public class Utils {
 			WebElement nomeMes = retornarElemento(elementoMes);
 			Select comboMes = new Select(nomeMes);
 			comboMes.selectByValue(formattedStringMes);
-
-		
 		}
 	}
 
+	public static void diaRetornoComMassa(By comboBoxReturningToDia, By comboBoxRuturningToMonth) {
+		
+		
+	}	
 }

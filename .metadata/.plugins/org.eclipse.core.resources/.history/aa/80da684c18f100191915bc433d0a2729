@@ -1,0 +1,66 @@
+package utils;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import model.ReservaPassagem;
+
+
+
+public class ExcelUtils {
+
+	ReservaPassagem rp;
+	
+	public void entrarExcel() {
+		
+		try {
+			String caminho = ".\\data\\SampleAppDataMassa.xlsx";
+			
+			
+			FileInputStream file = new FileInputStream(new File(caminho));
+			XSSFWorkbook workbook = new XSSFWorkbook(file);
+			XSSFSheet abaPlanilha = workbook.getSheetAt(0);
+			
+			for(Row linha: abaPlanilha) {
+				if(linha.getRowNum()> 0) {
+					Cell cellFlightNumber = linha.getCell(0);
+					Cell cellPassengers = linha.getCell(1);
+					Cell cellClass = linha.getCell(2);
+					Cell cellOn = linha.getCell(3);
+					Cell cellDepartingFrom = linha.getCell(4);
+					Cell cellArrivingIn = linha.getCell(5);
+					Cell cellOrderNumber = linha.getCell(6);
+					
+					
+					rp = new ReservaPassagem();
+					rp.setFlightNumber(cellFlightNumber.getStringCellValue());
+					rp.setPassengers(cellPassengers.getStringCellValue());
+					rp.setFligthclass(cellClass.getStringCellValue());
+					rp.setOn(cellOn.getStringCellValue());
+					rp.setDepartingFrom(cellDepartingFrom.getStringCellValue());
+					rp.setArrivingIn(cellArrivingIn.getStringCellValue());
+					rp.setOrderNumber(cellOrderNumber.getStringCellValue());	
+				}	
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+	public ReservaPassagem getRp() {
+		return rp;
+	}
+
+	public void setRp(ReservaPassagem rp) {
+		this.rp = rp;
+	}
+
+}
