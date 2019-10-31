@@ -284,22 +284,5 @@ public class ReservarUmTicketPageObject extends DriverFactory {
 
 		excelUtils.writeExcel();
 
-//		
-//		String i = Integer.toString(j++);
-//		
-//		if(rp.getOrderNumber() == null) {
-//	
-//			rp.setOrderNumber(i);
-//			
-//			
-//			
-//			
-//			
-//			
-//			
-//		}else {
-//			System.out.println("nao faz nada");
-//		}
-//		
 	}
 }

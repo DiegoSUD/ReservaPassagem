@@ -144,26 +144,7 @@ public class Utils{
 		}
 
 	}
-	
-//	/**
-//	 * @param status Metrodo de tirar screenshots e salvar na devida basta, passando
-//	 *               dois parametros String
-//	 * @param nome
-//	 */
-//	public static void screenshotsComMassa() {
-//		TakesScreenshot screen = (TakesScreenshot) DriverFactory.getDriver();
-//		File arquivo = screen.getScreenshotAs(OutputType.FILE);
-//		try {
-//			
-//			FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshots" + File.separator + "ComprarPassagemComExcel.feature" + File.separator + "reservarVoo" + contador++ +".png"));
-//
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//	}
-	
+
 
 	public static void diaEmbarque(By elementoDia, By elementoMes) {
 
